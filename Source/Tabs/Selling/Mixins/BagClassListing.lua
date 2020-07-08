@@ -57,7 +57,7 @@ function AuctionatorBagClassListingMixin:Reset()
 end
 
 function AuctionatorBagClassListingMixin:GetRowWidth()
-  return ROW_LENGTH * 42
+  return ROW_LENGTH * 37
 end
 
 function AuctionatorBagClassListingMixin:UpdateTitle()
@@ -123,12 +123,12 @@ function AuctionatorBagClassListingMixin:DrawButtons()
   end
 
   if #self.buttons > 0 then
-    self.ItemContainer:SetSize( self.buttons[1]:GetWidth() * 3, rows * 42 + 2)
+    self.ItemContainer:SetSize( self.buttons[1]:GetWidth() * 3, rows * 37 + 2)
   else
     self.ItemContainer:SetSize(0, 0)
   end
 
-  self:SetSize(42 * ROW_LENGTH, self.ItemContainer:GetHeight() + self.SectionTitle:GetHeight())
+  self:SetSize(37 * ROW_LENGTH, self.ItemContainer:GetHeight() + self.SectionTitle:GetHeight())
 end
 
 function AuctionatorBagClassListingMixin:UpdateForCollapsing()

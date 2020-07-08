@@ -1,6 +1,6 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/">
   <Frame name="AuctionatorBagItem" mixin="AuctionatorBagItemMixin" virtual="true">
-    <Size x="42" y="42"/>
+    <Size x="37" y="37"/>
 
     <Scripts>
       <OnLoad method="OnLoad" />
