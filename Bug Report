@@ -1,0 +1,108 @@
+Date: 2020-07-14 12:25:37
+ID: 1
+Error occured in: Global
+Count: 1
+Message: ..\AddOns\Auc-Advanced\CoreConst.lua line 229:
+   attempt to call global 'GetAuctionItemSubClasses' (a nil value)
+Debug:
+   [string "@Auc-Advanced\CoreConst.lua"]:229: in main chunk
+Locals:
+lib = <table> {
+ ENCHANT = 26
+ LASTENTRY = 27
+ IEQUIP = 5
+ MAXSKILLLEVEL = 800
+ AMHIGH = 19
+ AC_ClassNameList = <table> {
+ }
+ FACTOR = 25
+ MINBID = 15
+ FLAG_UNSEEN = 2
+ AucMinTimes = <table> {
+ }
+ FLAG = 21
+ FLAG_DIRTY = 64
+ CompactRealm = "Hyjal"
+ ALEVEL_MAX = 5
+ EquipEncode = <table> {
+ }
+ PlayerName = "Midoriyâ"
+ MAXITEMLEVEL = 1100
+ ITEMID = 23
+ PlayerRealm = "Hyjal"
+ AC_SubClassIDLists = <table> {
+ }
+ DEP2 = 10
+ ISUB = 4
+ ALEVEL_HI = 4
+ ScanPosLabels = <table> {
+ }
+ ULEVEL = 14
+ BUYOUT = 17
+ MAXUSERLEVEL = 120
+ AC_ClassIDList = <table> {
+ }
+ ALEVEL_MED = 3
+ ITYPE = 3
+ ALEVEL_LOW = 2
+ AucTimes = <table> {
+ }
+ ALEVEL_MIN = 1
+ NAME = 9
+ FLAG_EXPIRED = 128
+ CURBID = 18
+ MAXBIDPRICE = 99999999999
+ COUNT = 11
+ SEED = 27
+ SUFFIX = 24
+ AC_SubClassNameLists = <table> {
+ }
+ CANUSE = 13
+ SELLER = 20
+ LINK = 1
+ ILEVEL = 2
+ FLAG_FILTER = 4
+ TIME = 8
+ TLEFT = 7
+ BONUSES = 22
+ AucMaxTimes = <table> {
+ }
+ QUALITY = 12
+ SUBCLASSID = 4
+ ALEVEL_OFF = 0
+ MININC = 16
+ PRICE = 6
+ CLASSID = 3
+}
+(for generator) = <function> defined =[C]:-1
+(for state) = <table> {
+ 1 = 2
+ 2 = 4
+ 3 = 1
+ 4 = 3
+ 5 = 8
+ 6 = 0
+ 7 = 16
+ 8 = 7
+ 9 = 9
+ 10 = 17
+ 11 = 12
+ 12 = 15
+}
+(for control) = 1
+index = 1
+classID = 2
+(*temporary) = <table> {
+}
+(*temporary) = nil
+(*temporary) = 2
+(*temporary) = "attempt to call global 'GetAuctionItemSubClasses' (a nil value)"
+
+AddOns:
+  Swatter, v8.2.6511 (SwimmingSeadragon)
+  AucAdvanced, v8.2.6471 (SwimmingSeadragon)
+  SlideBar, v8.2.6509 (SwimmingSeadragon)
+  Stubby, v8.2.6510 (SwimmingSeadragon)
+  BlizRuntimeLib_frFR v8.3.0.80300 <none>
+  (ck=d2)
+
