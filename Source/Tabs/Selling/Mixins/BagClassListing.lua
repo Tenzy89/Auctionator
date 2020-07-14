@@ -1,6 +1,8 @@
 AuctionatorBagClassListingMixin = {}
 
-local ROW_LENGTH = 5
+function GetRowLength()
+  return math.floor(250/Auctionator.Config.Get(Auctionator.Config.Options.SELLING_ICON_SIZE))
+end
 
 function AuctionatorBagClassListingMixin:OnLoad()
   self.items = {}
@@ -16,11 +18,6 @@ function AuctionatorBagClassListingMixin:OnLoad()
 
   self:UpdateTitle()
   self:SetHeight(self.SectionTitle:GetHeight())
-
-  self.SectionTitle:SetWidth(self:GetRowWidth())
-  self.SectionTitle.NormalTexture:SetWidth(self:GetRowWidth() + 8)
-  self.SectionTitle.Text:SetPoint("LEFT", 12, 0)
-  self.SectionTitle.HighlightTexture:SetSize(self:GetRowWidth() + 9, self.SectionTitle:GetHeight())
 
   self.buttonNamePrefix = self.title .. "Item"
 
@@ -44,10 +41,16 @@ function AuctionatorBagClassListingMixin:Reset()
 end
 
 function AuctionatorBagClassListingMixin:GetRowWidth()
-  return ROW_LENGTH * 42
+  return GetRowLength() * Auctionator.Config.Get(Auctionator.Config.Options.SELLING_ICON_SIZE)
 end
 
 function AuctionatorBagClassListingMixin:UpdateTitle()
+  self.SectionTitle:SetWidth(self:GetRowWidth())
+  self.SectionTitle.NormalTexture:SetWidth(self:GetRowWidth() + 8)
+  self.SectionTitle.Text:SetPoint("LEFT", 12, 0)
+  self.SectionTitle.HighlightTexture:SetSize(self:GetRowWidth() + 9, self.SectionTitle:GetHeight())
+
+
   self.SectionTitle:SetText(self.title .. " (" .. #self.items .. ")")
 end
 
@@ -68,6 +71,11 @@ end
 function AuctionatorBagClassListingMixin:AddItem(item)
   local button = self.buttonPool:Get()
 
+  button:SetSize(
+    Auctionator.Config.Get(Auctionator.Config.Options.SELLING_ICON_SIZE),
+    Auctionator.Config.Get(Auctionator.Config.Options.SELLING_ICON_SIZE)
+  )
+
   button:Show()
 
   button:SetItemInfo(item)
@@ -85,21 +93,21 @@ function AuctionatorBagClassListingMixin:DrawButtons()
 
     if index == 1 then
       button:SetPoint("TOPLEFT", self.ItemContainer, "TOPLEFT", 0, -2)
-    elseif ((index - 1) % ROW_LENGTH) == 0 then
+    elseif ((index - 1) % GetRowLength()) == 0 then
       rows = rows + 1
-      button:SetPoint("TOPLEFT", self.buttons[index - ROW_LENGTH], "BOTTOMLEFT")
+      button:SetPoint("TOPLEFT", self.buttons[index - GetRowLength()], "BOTTOMLEFT")
     else
       button:SetPoint("TOPLEFT", self.buttons[index - 1], "TOPRIGHT")
     end
   end
 
   if #self.buttons > 0 then
-    self.ItemContainer:SetSize( self.buttons[1]:GetWidth() * 3, rows * 42 + 2)
+    self.ItemContainer:SetSize( self.buttons[1]:GetWidth() * 3, rows * Auctionator.Config.Get(Auctionator.Config.Options.SELLING_ICON_SIZE) + 2)
   else
     self.ItemContainer:SetSize(0, 0)
   end
 
-  self:SetSize(42 * ROW_LENGTH, self.ItemContainer:GetHeight() + self.SectionTitle:GetHeight())
+  self:SetSize(Auctionator.Config.Get(Auctionator.Config.Options.SELLING_ICON_SIZE) * GetRowLength(), self.ItemContainer:GetHeight() + self.SectionTitle:GetHeight())
 end
 
 function AuctionatorBagClassListingMixin:UpdateForCollapsing()
